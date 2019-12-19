@@ -22,7 +22,7 @@ class Markov {
             std::string intext = "";
             for(int i = 0; i < input.length(); i++) {
                 char s = tolower(input.at(i));
-                if(s < 97 | s > 122) {
+                if(s < 97 || s > 122) {
                     continue;
                 }
                 intext += s;
@@ -63,7 +63,7 @@ class Markov {
         std::string generate(std::string beginning = "", int min = 2, int max = 6) {
             if(beginning == "") {
                 beginning = "nn";
-                while(!(isvowel(beginning.at(0)) | isvowel(beginning.at(1)))) {
+                while(!(isvowel(beginning.at(0)) || isvowel(beginning.at(1)))) {
                     auto it = markov_map.begin();
                     std::advance(it, rand() % markov_map.size());
                     beginning = it->first;
